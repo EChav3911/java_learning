@@ -3,20 +3,20 @@ public class SecondsAndMinutesChallenge {
     static void main() {
 
         int minutes = 190;
-        int seconds = 44;
+        int seconds = 900;
 
-        //getDurationString(minutes, seconds);
-        getDurationString(getDurationString(minutes, seconds));
+        getDurationString(seconds);
+        getDurationString(minutes, seconds);
     }
 
     public static void getDurationString(int seconds){
 
-        int minutes = seconds/60;
-        int hours = minutes/60;
-        seconds = seconds - (minutes * 60);
-        minutes = minutes - (hours * 60);
+        int totalMinutes = seconds/60;
+        int totalHours = seconds/3600;
+        int secondsLeftOver = seconds - (totalMinutes * 60);
+        int minutesLeftOver = totalMinutes - (totalHours * 60);
 
-        System.out.println(hours + "h " + minutes + "m " + seconds + "s");
+        System.out.println(totalHours + "h " + minutesLeftOver + "m " + secondsLeftOver + "s");
     }
 
     public static int getDurationString(int minutes, int seconds){
