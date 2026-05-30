@@ -2,12 +2,16 @@ public class SecondsAndMinutesChallenge {
 
     static void main() {
 
-        int seconds = 35589;
+        int seconds = -999;
 
         getDurationString(seconds);
     }
 
     public static String getDurationString(int seconds) {
+        if (seconds < 0) {
+        System.out.println("invalid input");
+        return "invalid input";
+        }
 
         int minutes = seconds / 60;
 
@@ -16,6 +20,11 @@ public class SecondsAndMinutesChallenge {
 
 
     public static String getDurationString(int minutes, int seconds) {
+        if (minutes < 0 && (seconds < 0 || seconds > 59)) {
+            System.out.println("invalid input");
+            return "invalid input";
+        }
+
 
         int hours = minutes / 60;
 
