@@ -2,38 +2,41 @@ public class SecondsAndMinutesChallenge {
 
     static void main() {
 
-        int seconds = -999;
+        //int minutes = 0;
+        int seconds = 35_589;
 
-        getDurationString(seconds);
+        System.out.println(getDurationString(seconds));
     }
 
     public static String getDurationString(int seconds) {
         if (seconds < 0) {
-        System.out.println("invalid input");
-        return "invalid input";
+            //System.out.println("method 1");
+            return "invalid input";
         }
 
         int minutes = seconds / 60;
+        int remainingSeconds = seconds % 60;
 
-        return getDurationString(minutes, seconds);
+        return getDurationString(minutes, remainingSeconds);
     }
 
 
     public static String getDurationString(int minutes, int seconds) {
-        if (minutes < 0 && (seconds < 0 || seconds > 59)) {
-            System.out.println("invalid input");
-            return "invalid input";
+        if (minutes >= 0 && (seconds >= 0 && seconds <= 59)){
+
+            int hours = minutes / 60;
+
+            int remainingMinutes = minutes % 60;
+            int remainingSeconds = seconds % 60;
+
+            return hours + "h " + remainingMinutes + "m " + remainingSeconds + "s";
         }
 
-
-        int hours = minutes / 60;
-
-        int remainingMinutes = minutes % 60;
-        int remainingSeconds = seconds % 60;
-
-        System.out.println(hours + "h " + remainingMinutes + "m " + remainingSeconds + "s");
-        return hours + "h " + remainingMinutes + "m " + remainingSeconds + "s";
+        //System.out.println("method 2");
+        return "invalid input";
     }
+
+
 
 
 //    public static void getDurationString(int seconds){
