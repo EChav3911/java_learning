@@ -2,16 +2,19 @@ public class SecondsAndMinutesChallenge {
 
     static void main() {
 
-        //int minutes = 0;
-        int seconds = 35_589;
+        System.out.println(getDurationString(56987));
+        System.out.println(getDurationString(445, 652));
+        System.out.println(getDurationString(998, 42));
+        System.out.println(getDurationString(-229));
+        System.out.println(getDurationString(-4, 33));
+        System.out.println(getDurationString(56, 33));
+        System.out.println(getDurationString(56, -6));
 
-        System.out.println(getDurationString(seconds));
     }
 
     public static String getDurationString(int seconds) {
         if (seconds < 0) {
-            //System.out.println("method 1");
-            return "invalid input";
+            return "Seconds input (" + seconds + ") should be equal to or greater than 0";
         }
 
         int minutes = seconds / 60;
@@ -22,18 +25,20 @@ public class SecondsAndMinutesChallenge {
 
 
     public static String getDurationString(int minutes, int seconds) {
-        if (minutes >= 0 && (seconds >= 0 && seconds <= 59)){
-
-            int hours = minutes / 60;
-
-            int remainingMinutes = minutes % 60;
-            int remainingSeconds = seconds % 60;
-
-            return hours + "h " + remainingMinutes + "m " + remainingSeconds + "s";
+        if (minutes < 0){
+            return "Minute input (" + minutes + ") should be equal to or greater than 0";
         }
 
-        //System.out.println("method 2");
-        return "invalid input";
+        if (seconds < 0 || seconds > 59) {
+            return "Seconds input (" + seconds + ") should be between 0 and 59";
+        }
+
+        int hours = minutes / 60;
+
+        int remainingMinutes = minutes % 60;
+
+        return hours + "h " + remainingMinutes + "m " + seconds + "s";
+
     }
 
 
