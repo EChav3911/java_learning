@@ -2,37 +2,55 @@ public class SecondsAndMinutesChallenge {
 
     static void main() {
 
-        int minutes = 190;
-        int seconds = 900;
+        int seconds = 35589;
 
         getDurationString(seconds);
-        getDurationString(minutes, seconds);
     }
 
-    public static void getDurationString(int seconds){
+    public static String getDurationString(int seconds) {
 
-        int totalMinutes = seconds/60;
-        int totalHours = seconds/3600;
-        int secondsLeftOver = seconds - (totalMinutes * 60);
-        int minutesLeftOver = totalMinutes - (totalHours * 60);
+        int minutes = seconds / 60;
 
-        System.out.println(totalHours + "h " + minutesLeftOver + "m " + secondsLeftOver + "s");
+        return getDurationString(minutes, seconds);
     }
 
-    public static int getDurationString(int minutes, int seconds){
 
-        int totalSeconds = -1;
+    public static String getDurationString(int minutes, int seconds) {
 
-        if (minutes >= 0 && (seconds >= 0 && seconds <= 59)) {
+        int hours = minutes / 60;
 
-            int minutesToSeconds = minutes * 60;
-            totalSeconds = minutesToSeconds + seconds;
+        int remainingMinutes = minutes % 60;
+        int remainingSeconds = seconds % 60;
 
-            System.out.println(0+"h " + 0+"m " + totalSeconds+"s");
-        }else {
-            System.out.println("invalid entry");
-        }
-
-        return totalSeconds;
+        System.out.println(hours + "h " + remainingMinutes + "m " + remainingSeconds + "s");
+        return hours + "h " + remainingMinutes + "m " + remainingSeconds + "s";
     }
+
+
+//    public static void getDurationString(int seconds){
+//
+//        int totalMinutes = seconds/60;
+//        int totalHours = seconds/3600;
+//        int secondsLeftOver = seconds - (totalMinutes * 60);
+//        int minutesLeftOver = totalMinutes - (totalHours * 60);
+//
+//        System.out.println(totalHours + "h " + minutesLeftOver + "m " + secondsLeftOver + "s");
+//    }
+//
+//    public static int getDurationString(int minutes, int seconds){
+//
+//        int totalSeconds = -1;
+//
+//        if (minutes >= 0 && (seconds >= 0 && seconds <= 59)) {
+//
+//            int minutesToSeconds = minutes * 60;
+//            totalSeconds = minutesToSeconds + seconds;
+//
+//            System.out.println(0+"h " + 0+"m " + totalSeconds+"s");
+//        }else {
+//            System.out.println("invalid entry");
+//        }
+//
+//        return totalSeconds;
+//    }
 }
